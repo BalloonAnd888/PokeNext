@@ -1,20 +1,35 @@
-import pic from "../test/001.png";
-import grass from "../test/Grass.svg";
-import poison from "../test/Poison.svg";
-import Image from "next/image";
+"use client";
 
-const PokemonCard = () => {
+import Image from "next/image";
+import { PokemonProps } from "@/types";
+import { Types } from "@/constants";
+
+const PokemonCard = ({ name, image, index, types }: PokemonProps) => {
   return (
     <div className="card">
-      <h3 className="text-[30px] font-bold">1</h3>
+      <h3 className="text-[30px] font-bold">{index + 1}</h3>
 
-      <Image src={pic} height={150} width={150} alt="pic" className="m-auto" />
+      <Image
+        src={image}
+        height={150}
+        width={150}
+        alt="pic"
+        className="m-auto"
+      />
 
-      <h1 className="text-center text-2xl font-semibold pt-2">Bulbasaur</h1>
+      <h1 className="text-center text-2xl font-semibold pt-2 capitalize">
+        {name}
+      </h1>
 
       <div className="type">
-        <Image src={grass} width={150} height={150} alt="grass" />
-        <Image src={poison} width={150} height={150} alt="grass" />
+        {types?.map((type) => (
+          <Image
+            src={Types[type]?.icon || ""}
+            alt={type}
+            width={115}
+            height={115}
+          />
+        ))}
       </div>
     </div>
   );
