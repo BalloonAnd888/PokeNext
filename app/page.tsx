@@ -1,11 +1,12 @@
+import Link from "next/link";
 import Filter from "@/components/Filter";
 import PokemonCard from "@/components/PokemonCard";
 import SearchBar from "@/components/SearchBar";
+import { Pokemon } from "@/types";
 import { fetchAllPokemon } from "@/utils";
-import Link from "next/link";
 
 export default async function Home() {
-  const allPokemon = await fetchAllPokemon();
+  const allPokemon: Pokemon[] = await fetchAllPokemon();
 
   //console.log(allPokemon);
 
@@ -15,7 +16,7 @@ export default async function Home() {
       <Filter />
       <Filter />
       <div className="list">
-        {allPokemon?.map((pokemon: any, index: number) => (
+        {allPokemon?.map((pokemon, index) => (
           <Link
             key={index}
             href={{
@@ -25,7 +26,7 @@ export default async function Home() {
               },
             }}
           >
-            <div key={index}>
+            <div>
               <PokemonCard
                 name={pokemon.name}
                 image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${

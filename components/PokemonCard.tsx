@@ -1,10 +1,8 @@
-"use client";
-
 import Image from "next/image";
-import { PokemonProps } from "@/types";
+import { Pokemon } from "@/types";
 import { Types } from "@/constants";
 
-const PokemonCard = ({ name, image, index, types }: PokemonProps) => {
+const PokemonCard = ({ name, image, index, types }: Pokemon) => {
   return (
     <div className="card">
       <h3 className="text-[30px] font-bold">{index + 1}</h3>
@@ -22,12 +20,13 @@ const PokemonCard = ({ name, image, index, types }: PokemonProps) => {
       </h1>
 
       <div className="type">
-        {types?.map((type) => (
+        {types.map((type, index) => (
           <Image
-            src={Types[type]?.icon || ""}
+            src={Types[type].icon}
             alt={type}
             width={115}
             height={115}
+            key={index}
           />
         ))}
       </div>

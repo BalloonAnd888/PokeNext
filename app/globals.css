@@ -4,29 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.list {
-  /* @apply flex flex-wrap justify-center gap-y-[50px] gap-x-[20px] md:mx-52 lg:mx-96; */
-  /* @apply md:grid grid-cols-2 lg:grid-cols-5; */
-  /* padding-left: 15px;
-  padding-right: 15px; */
-  /* @apply md:flex flex-wrap flex-row justify-center gap-x-[20px] mx-[300px]; */
+body {
+  /* background-image: linear-gradient(to bottom right, red, yellow); */
+  background-color: lightgray;
+  /* background: linear-gradient(to bottom right, red, yellow); */
 }
-
-@media (min-width: 768px) {
-  .list {
-    @apply flex flex-wrap flex-row justify-center gap-x-[20px];
-  }
-}
-
-@media (min-width: 1280px) {
-  .list {
-    @apply mx-[300px];
-  }
-}
-
-/* .cardBox {
-  @apply md:flex flex-wrap flex-row;
-} */
 
 .card {
   background-color: gray;
@@ -40,13 +22,78 @@
   padding: 10px 10px;
 }
 
+.audioButton {
+  background-color: wheat;
+  width: 100px;
+  border-radius: 30px;
+  margin: 12px 0px;
+}
+
+.abilityButton {
+  background-color: wheat;
+  width: 90px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.leftArrow {
+  display: none;
+}
+
 .type {
   @apply flex flex-row justify-center mx-2;
 }
 
-/* body {
-  background-image: linear-gradient(to bottom right, red, yellow);
-} */
+@media (min-width: 640px) {
+  .detail {
+    @apply flex justify-center;
+  }
+}
+
+@media (min-width: 768px) {
+  .list {
+    @apply flex flex-wrap flex-row justify-center gap-x-[20px];
+  }
+
+  .image {
+    @apply ml-10;
+  }
+
+  .evolution {
+    @apply flex flex-wrap flex-row justify-center;
+  }
+
+  .evolutionList {
+    @apply px-8;
+  }
+
+  .arrow {
+    @apply flex flex-wrap flex-row justify-center items-center;
+  }
+
+  .downArrow {
+    display: none;
+  }
+
+  .leftArrow {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .list {
+    @apply mx-[300px];
+  }
+
+  .image {
+    @apply ml-20;
+  }
+
+  .evolutionList {
+    @apply px-14;
+  }
+}
 
 /* :root {
   --foreground-rgb: 0, 0, 0;

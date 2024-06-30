@@ -1,6 +1,6 @@
-import { TypeProps } from "@/types";
+import { Type } from "@/types";
 
-export const Types: Record<string, TypeProps> = {
+export const Types: Type = {
   bug: {
     name: "bug",
     icon: "/typeIcon/Bug.svg",
