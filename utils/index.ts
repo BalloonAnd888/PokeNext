@@ -1,9 +1,9 @@
 import { PokemonResultProps } from "@/types";
 
-export const fetchAllPokemon = async () => {
+export const fetchAllPokemon = async (offset: number) => {
   try {
     const response = await fetch(
-      "https://pokeapi.co/api/v2/pokemon?limit=60&offset=0"
+      `https://pokeapi.co/api/v2/pokemon?limit=60&offset=${offset}`
     );
 
     const result = await response.json();
@@ -15,6 +15,7 @@ export const fetchAllPokemon = async () => {
         return {
           ...pokemon,
           types: details.types.map((typeInfo: any) => typeInfo.type.name),
+          id: details.id,
         };
       })
     );
@@ -31,7 +32,7 @@ export const fetchPokemonDetails = async (name: string) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
     const data = await response.json();
 
-    //console.log(data);
+    console.log(data);
     return data;
   } catch (error) {
     console.error(`Error fetching details for Pokémon ${name}:`, error);

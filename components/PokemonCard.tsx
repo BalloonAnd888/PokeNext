@@ -2,10 +2,10 @@ import Image from "next/image";
 import { Pokemon } from "@/types";
 import { Types } from "@/constants";
 
-const PokemonCard = ({ name, image, index, types }: Pokemon) => {
+const PokemonCard = ({ name, image, id, types }: Pokemon) => {
   return (
     <div className="card">
-      <h3 className="text-[30px] font-bold">{index + 1}</h3>
+      <h3 className="text-[30px] font-bold">{id}</h3>
 
       <Image
         src={image}

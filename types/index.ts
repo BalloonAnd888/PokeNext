@@ -2,7 +2,7 @@ export interface Pokemon {
   name: string;
   url?: string;
   image: string;
-  index: number;
+  id: number;
   types: string[];
 }
 

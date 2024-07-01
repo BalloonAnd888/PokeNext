@@ -1,21 +1,31 @@
-import Link from "next/link";
-import Filter from "@/components/Filter";
-import PokemonCard from "@/components/PokemonCard";
-import SearchBar from "@/components/SearchBar";
+"use client";
+
 import { Pokemon } from "@/types";
 import { fetchAllPokemon } from "@/utils";
-import Load from "@/components/Load";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import PokemonCard from "./PokemonCard";
 
-export default async function Home() {
-  const allPokemon: Pokemon[] = await fetchAllPokemon(0);
+let offset = 60;
+
+const Load = () => {
+  const { ref, inView } = useInView();
+  const [allPokemon, setAllPokemon] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    if (inView) {
+      fetchAllPokemon(offset).then((res) => {
+        setAllPokemon([...allPokemon, ...res]);
+        offset += 60;
+      });
+    }
+  }, [inView, allPokemon]);
 
   console.log(allPokemon);
 
   return (
-    <div>
-      <SearchBar />
-      <Filter />
-      <Filter />
+    <>
       <div className="list">
         {allPokemon?.map((pokemon, index) => (
           <Link
@@ -38,7 +48,9 @@ export default async function Home() {
           </Link>
         ))}
       </div>
-      <Load />
-    </div>
+      <div ref={ref}>Load</div>
+    </>
   );
-}
+};
+
+export default Load;
