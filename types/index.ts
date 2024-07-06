@@ -6,6 +6,23 @@ export interface Pokemon {
   types: string[];
 }
 
+export interface Pokemons {
+  pokemons: Pokemon[];
+}
+
+export interface Search {
+  pokemons: Pokemon[];
+  allPokemon: Pokemon[];
+}
+
+export interface OnSearch {
+  onSearch: (query: string) => void;
+}
+
+export interface SetLoad {
+  isLoaded: Boolean;
+}
+
 export interface Type {
   [key: string]: {
     name: string;

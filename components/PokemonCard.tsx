@@ -11,7 +11,7 @@ const PokemonCard = ({ name, image, id, types }: Pokemon) => {
         src={image}
         height={150}
         width={150}
-        alt="pic"
+        alt={name}
         className="m-auto"
       />
 
