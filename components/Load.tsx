@@ -20,7 +20,7 @@ const Load = ({ isLoaded }: SetLoad) => {
         offset += 60;
       });
     }
-  }, [inView, pokemons]);
+  }, [inView, pokemons, isLoaded]);
 
   return (
     <div>

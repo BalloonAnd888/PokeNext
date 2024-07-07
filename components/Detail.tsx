@@ -45,10 +45,8 @@ const Detail = ({ details, species }: DetailProp) => {
 
               <div>
                 {details.abilities.map((x, index) => (
-                  <div className="abilityButton">
-                    <h2 className="capitalize" key={index}>
-                      {x.ability.name}
-                    </h2>
+                  <div className="abilityButton" key={index}>
+                    <h2 className="capitalize">{x.ability.name}</h2>
                   </div>
                 ))}
               </div>
