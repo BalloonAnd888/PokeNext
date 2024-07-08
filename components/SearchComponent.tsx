@@ -5,6 +5,10 @@ import PokemonList from "./PokemonList";
 import SearchBar from "./SearchBar";
 import { Pokemon, Search } from "@/types";
 import Load from "./Load";
+import Filter from "./Filter";
+
+import { Types } from "@/constants";
+import { Gens } from "@/constants";
 
 const SearchComponent = ({ pokemons, allPokemon }: Search) => {
   const [filteredPokemon, setFilteredPokemon] = useState<Pokemon[]>(pokemons);
@@ -24,11 +28,29 @@ const SearchComponent = ({ pokemons, allPokemon }: Search) => {
     }
   };
 
+  const handleFilter = (query: string) => {
+    if (query == "") {
+      setFilteredPokemon(pokemons);
+      setLoad(true);
+    } else {
+      setLoad(false);
+      const filtered = allPokemon.filter((pokemon) =>
+        pokemon.types.includes(query.toLowerCase())
+      );
+
+      console.log(query);
+
+      setFilteredPokemon(filtered);
+    }
+  };
+
   return (
     <div>
-      <SearchBar onSearch={handleSearch} />
-      {/* <Filter />
-      <Filter /> */}
+      <div>
+        <SearchBar onSearch={handleSearch} />
+        <Filter list={Types} onFilter={handleFilter} />
+        {/* <Filter list={Gens} /> */}
+      </div>
       <PokemonList pokemons={filteredPokemon} />
       <Load isLoaded={load} />
     </div>

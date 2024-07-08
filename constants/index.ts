@@ -1,4 +1,4 @@
-import { Type } from "@/types";
+import { Gen, Type } from "@/types";
 
 export const Types: Type = {
   bug: {
@@ -106,5 +106,43 @@ export const Types: Type = {
     name: "water",
     icon: "/typeIcon/Water.svg",
     namePlate: "/typeName/Water.svg",
+  },
+};
+
+export const Gens: Gen = {
+  gen1: {
+    name: "generation-i",
+  },
+
+  gen2: {
+    name: "generation-ii",
+  },
+
+  gen3: {
+    name: "generation-iii",
+  },
+
+  gen4: {
+    name: "generation-iv",
+  },
+
+  gen5: {
+    name: "generation-v",
+  },
+
+  gen6: {
+    name: "generation-vi",
+  },
+
+  gen7: {
+    name: "generation-vii",
+  },
+
+  gen8: {
+    name: "generation-viii",
+  },
+
+  gen9: {
+    name: "generation-ix",
   },
 };

@@ -12,10 +12,12 @@ export const fetchAllPokemon = async () => {
     const detailedPokemonList = await Promise.all(
       pokemonList.map(async (pokemon: PokemonResultProps) => {
         const details = await fetchPokemonDetails(pokemon.name);
+        //const species = await fetchPokemonSpecies(pokemon.name);
         return {
           ...pokemon,
           types: details.types.map((typeInfo: any) => typeInfo.type.name),
           id: details.id,
+          //gen: species.generation.name,
         };
       })
     );
@@ -39,10 +41,12 @@ export const fetchPokemons = async (offset: number) => {
     const detailedPokemonList = await Promise.all(
       pokemonList.map(async (pokemon: PokemonResultProps) => {
         const details = await fetchPokemonDetails(pokemon.name);
+        //const species = await fetchPokemonSpecies(pokemon.name);
         return {
           ...pokemon,
           types: details.types.map((typeInfo: any) => typeInfo.type.name),
           id: details.id,
+          //gen: species.generation.name,
         };
       })
     );

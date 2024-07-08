@@ -4,6 +4,7 @@ export interface Pokemon {
   image: string;
   id: number;
   types: string[];
+  gen: string;
 }
 
 export interface Pokemons {
@@ -19,6 +20,10 @@ export interface OnSearch {
   onSearch: (query: string) => void;
 }
 
+export interface OnFilter {
+  onFilter: (query: string) => void;
+}
+
 export interface SetLoad {
   isLoaded: Boolean;
 }
@@ -28,6 +33,12 @@ export interface Type {
     name: string;
     icon: string;
     namePlate: string;
+  };
+}
+
+export interface Gen {
+  [key: string]: {
+    name: string;
   };
 }
 
@@ -115,4 +126,9 @@ export interface EvolutionProp {
 
 export interface Level {
   level: number;
+}
+
+export interface FilterProp {
+  list: Type | Gen;
+  onFilter: (query: string) => void;
 }

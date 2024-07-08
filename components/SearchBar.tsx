@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch }: OnSearch) => {
         placeholder="Search Pokémon"
         value={searchQuery}
         onChange={handleInputChange}
-        style={{ marginBottom: "20px", padding: "10px", width: "100%" }}
+        style={{ marginBottom: "20px", padding: "10px", width: "75%" }}
       />
     </div>
   );
