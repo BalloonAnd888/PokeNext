@@ -4,7 +4,7 @@ export interface Pokemon {
   image: string;
   id: number;
   types: string[];
-  gen: string;
+  gen?: string;
 }
 
 export interface Pokemons {
