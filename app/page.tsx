@@ -6,9 +6,6 @@ export default async function Home() {
   const pokemons: Pokemon[] = await fetchPokemons(0);
   const allPokemon: Pokemon[] = await fetchAllPokemon();
 
-  // console.log(pokemons);
-  // console.log(allPokemon);
-
   return (
     <div>
       <SearchComponent pokemons={pokemons} allPokemon={allPokemon} />

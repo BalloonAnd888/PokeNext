@@ -1,7 +1,7 @@
 "use client";
 
-import { OnSearch } from "@/types";
 import { useState } from "react";
+import { OnSearch } from "@/types";
 
 const SearchBar = ({ onSearch }: OnSearch) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch }: OnSearch) => {
         placeholder="Search Pokémon"
         value={searchQuery}
         onChange={handleInputChange}
-        style={{ marginBottom: "20px", padding: "10px", width: "75%" }}
+        className="searchBar"
       />
     </div>
   );

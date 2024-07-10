@@ -46,7 +46,7 @@ const SearchComponent = ({ pokemons, allPokemon }: Search) => {
 
   return (
     <div>
-      <div>
+      <div className="search">
         <SearchBar onSearch={handleSearch} />
         <Filter list={Types} onFilter={handleFilter} />
         {/* <Filter list={Gens} /> */}

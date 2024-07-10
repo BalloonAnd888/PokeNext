@@ -41,6 +41,21 @@ body {
   display: none;
 }
 
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBar {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.filter {
+  padding-left: 10px;
+}
+
 .type {
   @apply flex flex-row justify-center mx-2;
 }

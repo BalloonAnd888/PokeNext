@@ -1,10 +1,11 @@
 "use client";
 
-import { SetLoad, Pokemon } from "@/types";
-import { fetchPokemons } from "@/utils";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { SetLoad, Pokemon } from "@/types";
+import { fetchPokemons } from "@/utils";
 import PokemonCard from "./PokemonCard";
 
 let offset = 60;
@@ -48,7 +49,15 @@ const Load = ({ isLoaded }: SetLoad) => {
               </Link>
             ))}
           </div>
-          <div ref={ref}>Load</div>
+
+          <Image
+            ref={ref}
+            src={"/tube-spinner.svg"}
+            height={50}
+            width={50}
+            alt="Loading"
+            className="m-auto"
+          />
         </>
       )}
     </div>
