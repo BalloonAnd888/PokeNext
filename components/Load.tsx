@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { SetLoad, Pokemon } from "@/types";
@@ -38,14 +39,25 @@ const Load = ({ isLoaded }: SetLoad) => {
                   },
                 }}
               >
-                <div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: {
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    },
+                  }}
+                >
                   <PokemonCard
                     name={pokemon.name}
                     image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
                     id={pokemon.id}
                     types={pokemon.types}
                   />
-                </div>
+                </motion.div>
               </Link>
             ))}
           </div>
