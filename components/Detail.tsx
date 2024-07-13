@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Types } from "@/constants";
 import { DetailProp } from "@/types";
 
@@ -29,7 +30,12 @@ const Detail = ({ details, species }: DetailProp) => {
       </div>
 
       <div className="detail">
-        <div className="py-4">
+        <motion.div
+          className="py-4"
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ ease: "easeIn", duration: 0.5 }}
+        >
           <div className="grid grid-cols-2 text-center md:gap-x-[50px] lg:gap-x-[70px]">
             <div className="text-right mr-10">
               <h2>ID </h2>
@@ -64,9 +70,14 @@ const Detail = ({ details, species }: DetailProp) => {
               /> */}
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="image">
+        <motion.div
+          className="image"
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ ease: "easeIn", duration: 0.7 }}
+        >
           <Image
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${details.id}.png`}
             height={150}
@@ -85,7 +96,7 @@ const Detail = ({ details, species }: DetailProp) => {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
